@@ -111,7 +111,7 @@ ConsoleInput::GetChar()
 ConsoleOutput::ConsoleOutput(char *writeFile, CallBackObj *toCall)
 {
     if (writeFile == NULL)
-	writeFileNo = 1;				// display = stdout
+        writeFileNo = 1;				// display = stdout
     else
     	writeFileNo = OpenForWrite(writeFile);
 
