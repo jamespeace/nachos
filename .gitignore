@@ -1,2 +1,12 @@
+.vscode
 *.o
 *.coff
+nachos
+coff2noff
+swtch.s
+halt
+matmult
+shell
+sort
+test1
+test2
