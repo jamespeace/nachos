@@ -95,6 +95,7 @@ class Interrupt {
 				// next interrupt
 
     void Halt(); 		// quit and print out stats
+    void PrintInt(int i); // Print Integer on Display
     
     void YieldOnReturn();	// cause a context switch on return 
 				// from an interrupt handler

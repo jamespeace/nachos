@@ -482,7 +482,9 @@ interrupt.o: ../machine/interrupt.cc /usr/include/stdc-predef.h \
  ../lib/list.cc ../machine/callback.h ../threads/main.h ../lib/debug.h \
  ../threads/kernel.h ../lib/utility.h ../threads/thread.h ../lib/sysdep.h \
  ../threads/scheduler.h ../machine/interrupt.h ../machine/stats.h \
- ../threads/alarm.h ../machine/callback.h ../machine/timer.h
+ ../threads/alarm.h ../machine/callback.h ../machine/timer.h \
+ ../machine/../userprog/synchconsole.h ../machine/console.h \
+ ../threads/synch.h ../threads/main.h
 stats.o: ../machine/stats.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../lib/debug.h ../lib/copyright.h ../lib/utility.h \
  ../lib/sysdep.h /usr/include/c++/4.8/iostream \

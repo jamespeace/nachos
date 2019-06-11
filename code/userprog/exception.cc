@@ -63,7 +63,7 @@ ExceptionHandler(ExceptionType which)
 		    break;
 		case SC_PrintInt:
 			val=kernel->machine->ReadRegister(4);
-			cout << "Print integer:" <<val << endl;
+			kernel->interrupt->PrintInt(val);
 			return;
 /*		case SC_Exec:
 			DEBUG(dbgAddr, "Exec\n");

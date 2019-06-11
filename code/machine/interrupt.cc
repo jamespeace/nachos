@@ -23,6 +23,7 @@
 #include "copyright.h"
 #include "interrupt.h"
 #include "main.h"
+#include "../userprog/synchconsole.h"
 
 // String definitions for debugging messages
 
@@ -238,6 +239,16 @@ Interrupt::Halt()
     delete kernel;	// Never returns.
 }
 
+//----------------------------------------------------------------------
+// Interrupt::PrintInt
+// Print integer to Display
+//----------------------------------------------------------------------
+void
+Interrupt::PrintInt(int i)
+{
+    SynchConsoleOutput *output = new SynchConsoleOutput(NULL);
+    output->PutChar((char)i);
+}
 //----------------------------------------------------------------------
 // Interrupt::Schedule
 // 	Arrange for the CPU to be interrupted when simulated time
