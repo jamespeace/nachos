@@ -240,16 +240,6 @@ Interrupt::Halt()
 }
 
 //----------------------------------------------------------------------
-// Interrupt::PrintInt
-// Print integer to Display
-//----------------------------------------------------------------------
-void
-Interrupt::PrintInt(int i)
-{
-    SynchConsoleOutput *output = new SynchConsoleOutput(NULL);
-    output->PutChar((char)i);
-}
-//----------------------------------------------------------------------
 // Interrupt::Schedule
 // 	Arrange for the CPU to be interrupted when simulated time
 //	reaches "now + when".
