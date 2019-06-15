@@ -64,7 +64,7 @@ ExceptionHandler(ExceptionType which)
 		case SC_PrintInt:
 			val=kernel->machine->ReadRegister(4);
 			kernel->sychconsoleoutput->PutInt(val);
-			return;
+			break;
 /*		case SC_Exec:
 			DEBUG(dbgAddr, "Exec\n");
 			val = kernel->machine->ReadRegister(4);
