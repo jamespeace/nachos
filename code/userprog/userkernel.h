@@ -16,7 +16,10 @@
 #include "filesys.h"
 #include "machine.h"
 #include "synchdisk.h"
+#include "synchconsole.h"
+
 class SynchDisk;
+class SynchConsoleOutput;
 class UserProgKernel : public ThreadedKernel {
   public:
     UserProgKernel(int argc, char **argv);
@@ -32,6 +35,7 @@ class UserProgKernel : public ThreadedKernel {
 // These are public for notational convenience.
     Machine *machine;
     FileSystem *fileSystem;
+    SynchConsoleOutput *sychconsoleoutput; // standard output
 
 #ifdef FILESYS
     SynchDisk *synchDisk;

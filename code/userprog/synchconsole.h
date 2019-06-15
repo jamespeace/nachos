@@ -17,6 +17,15 @@
 #include "console.h"
 #include "synch.h"
 
+class Lock;
+class Semaphore;
+
+size_t
+Iota(int val, char* s);
+
+void
+Reverse(char *s, size_t length);
+
 // The following two classes define synchronized input and output to
 // a console device
 
@@ -41,6 +50,7 @@ class SynchConsoleOutput : public CallBackObj {
     ~SynchConsoleOutput();
 
     void PutChar(char ch);	// Write a character, waiting if necessary
+    void PutInt(int val);
     
   private:
     ConsoleOutput *consoleOutput;// the hardware display

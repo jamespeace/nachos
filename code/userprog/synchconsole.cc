@@ -9,6 +9,7 @@
 #include "copyright.h"
 #include "synchconsole.h"
 
+#define MAX_INT 11
 //----------------------------------------------------------------------
 // SynchConsoleInput::SynchConsoleInput
 //      Initialize synchronized access to the keyboard
@@ -117,4 +118,53 @@ void
 SynchConsoleOutput::CallBack()
 {
     waitFor->V();
+}
+
+//----------------------------------------------------------------------
+// YsnchConsoleOutput::PutInt
+// Write a integer to Display
+//----------------------------------------------------------------------
+void
+SynchConsoleOutput::PutInt(int val)
+{
+    char s[MAX_INT];
+    size_t len;
+
+    len = Iota(val, s);
+    for(size_t i = 0; i < len; i++)
+        PutChar(s[i] + '0');
+    PutChar('\n');
+}
+
+//----------------------------------------------------------------------
+// SynchCOnsoleOutput::Iota
+// Translate integer to string
+//----------------------------------------------------------------------
+size_t
+Iota(int val, char* s)
+{
+    int sign;
+    size_t index;
+
+    if((sign = val) < 0)
+        val = -val;
+    for(index = 0; val != 0; val = val/10, index++) {
+        s[index] = val % 10;
+    }
+
+    Reverse(s, index);
+    return index;
+}
+
+void
+Reverse(char* s, size_t length)
+{
+    size_t f, b;
+    char temp;
+
+    for(f = 0, b = length-1; f < b; f++, b--) {
+        temp = s[f];
+        s[f] = s[b];
+        s[b] = temp;
+    }
 }
