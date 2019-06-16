@@ -1722,7 +1722,8 @@ exception.o: ../userprog/exception.cc /usr/include/stdc-predef.h \
  ../machine/callback.h ../machine/stats.h ../threads/alarm.h \
  ../machine/callback.h ../machine/timer.h ../filesys/synchdisk.h \
  ../machine/disk.h ../threads/synch.h ../threads/main.h \
- ../userprog/synchconsole.h ../machine/console.h ../userprog/syscall.h
+ ../userprog/synchconsole.h ../machine/console.h ../userprog/syscall.h \
+ ../userprog/ksyscall.h ../userprog/userkernel.h
 synchconsole.o: ../userprog/synchconsole.cc /usr/include/stdc-predef.h \
  ../lib/copyright.h ../userprog/synchconsole.h ../lib/utility.h \
  ../lib/copyright.h ../machine/callback.h ../machine/console.h \

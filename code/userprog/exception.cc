@@ -24,6 +24,7 @@
 #include "copyright.h"
 #include "main.h"
 #include "syscall.h"
+#include "ksyscall.h"
 
 //----------------------------------------------------------------------
 // ExceptionHandler
@@ -63,8 +64,11 @@ ExceptionHandler(ExceptionType which)
 		    break;
 		case SC_PrintInt:
 			val=kernel->machine->ReadRegister(4);
-			kernel->sychconsoleoutput->PutInt(val);
-			break;
+			kernel->synchconsoleoutput->PutInt(val);
+			return;
+		case SC_Print:
+			SysPrint((int *)kernel->machine->ReadRegister(4));
+			return;
 /*		case SC_Exec:
 			DEBUG(dbgAddr, "Exec\n");
 			val = kernel->machine->ReadRegister(4);

@@ -35,7 +35,7 @@ class UserProgKernel : public ThreadedKernel {
 // These are public for notational convenience.
     Machine *machine;
     FileSystem *fileSystem;
-    SynchConsoleOutput *sychconsoleoutput; // standard output
+    SynchConsoleOutput *synchconsoleoutput; // standard output
 
 #ifdef FILESYS
     SynchDisk *synchDisk;

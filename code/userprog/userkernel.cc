@@ -58,7 +58,7 @@ UserProgKernel::Initialize()
 
     machine 		  = new Machine(debugUserProg);
     fileSystem 		  = new FileSystem();
-    sychconsoleoutput = new SynchConsoleOutput(NULL); // Standard output
+    synchconsoleoutput = new SynchConsoleOutput(NULL); // Standard output
 #ifdef FILESYS
     synchDisk = new SynchDisk("New SynchDisk");
 #endif // FILESYS
