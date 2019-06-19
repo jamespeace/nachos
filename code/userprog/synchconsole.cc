@@ -132,7 +132,7 @@ SynchConsoleOutput::PutInt(int val)
 
     len = Iota(val, s);
     for(size_t i = 0; i < len; i++)
-        PutChar(s[i] + '0');
+        PutChar(s[i]);
     PutChar('\n');
 }
 
@@ -144,13 +144,17 @@ size_t
 Iota(int val, char* s)
 {
     int sign;
-    size_t index;
+    size_t index = 0;
 
+    if (val == 0) {
+        s[index++] = '0';
+    }
     if((sign = val) < 0)
         val = -val;
-    for(index = 0; val != 0; val = val/10, index++) {
-        s[index] = val % 10;
+    for(; val != 0; val = val/10, index++) {
+        s[index] = val % 10 + '0';
     }
+    s[index] = '\0';
 
     Reverse(s, index);
     return index;

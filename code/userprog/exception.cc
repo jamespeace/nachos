@@ -53,8 +53,11 @@ void
 ExceptionHandler(ExceptionType which)
 {
 	int	type = kernel->machine->ReadRegister(2);
-	int	val;
+	int	reg2, reg4, reg5, reg6, val;
 
+	reg4 = kernel->machine->ReadRegister(4);
+	reg5 = kernel->machine->ReadRegister(5);
+	reg6 = kernel->machine->ReadRegister(6);
     switch (which) {
 	case SyscallException:
 	    switch(type) {
@@ -63,11 +66,30 @@ ExceptionHandler(ExceptionType which)
    		    kernel->interrupt->Halt();
 		    break;
 		case SC_PrintInt:
-			val=kernel->machine->ReadRegister(4);
-			kernel->synchconsoleoutput->PutInt(val);
+			kernel->synchconsoleoutput->PutInt(reg4);
 			return;
 		case SC_Print:
-			SysPrint((int *)kernel->machine->ReadRegister(4));
+			SysPrint((int *)reg4);
+			return;
+		case SC_Create:
+			val = SysCreate((char *)reg4);
+			kernel->machine->WriteRegister(2, val);
+			return;
+		case SC_Open:
+			val = SysOpen((char *)reg4);
+			kernel->machine->WriteRegister(2, val);
+			return;
+		case SC_Read:
+			val = SysRead((char *)reg4, reg5, (OpenFileId) reg6);
+			kernel->machine->WriteRegister(2, val);
+			return;
+		case SC_Write:
+			val = SysWrite((char *)reg4, reg5, (OpenFileId) reg6);
+			kernel->machine->WriteRegister(2, val);
+			return;
+		case SC_Close:
+			val = SysClose(reg4);
+			kernel->machine->WriteRegister(2, val);
 			return;
 /*		case SC_Exec:
 			DEBUG(dbgAddr, "Exec\n");
