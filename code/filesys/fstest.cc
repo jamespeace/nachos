@@ -11,6 +11,7 @@
 // Copyright (c) 1992-1993 The Regents of the University of California.
 // All rights reserved.  See copyright.h for copyright notice and limitation 
 // of liability and disclaimer of warranty provisions.
+#ifndef FILESYS_STUB
 
 #include "copyright.h"
 #include "debug.h"
@@ -174,7 +175,7 @@ PerformanceTest()
 {
     printf("Starting file system performance test:\n");
     kernel->stats->Print();
-    FileWrite();
+   FileWrite();
     FileRead();
     if (!kernel->fileSystem->Remove(FileName)) {
       printf("Perf test: unable to remove %s\n", FileName);
@@ -183,3 +184,4 @@ PerformanceTest()
     kernel->stats->Print();
 }
 
+#endif //FILESYS_STUB 

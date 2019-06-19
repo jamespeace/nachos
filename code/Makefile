@@ -33,4 +33,4 @@ print:
 	/bin/csh -c "$(LPR) test/*.h test/*.c test/*.s"
 
 test1:
-	./userprog/nachos -e ./test/test1
+	./userprog/nachos -e ./test/fileO_test1
